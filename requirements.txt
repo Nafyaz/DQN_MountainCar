@@ -1,0 +1,6 @@
+torch
+gymnasium[classic-control]
+moviepy
+numpy
+tqdm
+matplotlib
