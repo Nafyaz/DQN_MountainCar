@@ -15,8 +15,8 @@ def plot_durations(episode_durations, show_result=False):
     plt.ylabel('Duration')
     plt.plot(durations_t.numpy())
 
-    durations_t_mean = [durations_t[max(d-20, 0):d].mean() for d in range(durations_t.size(dim=0))]
-    plt.plot(durations_t_mean)
+    recent_durations_t = durations_t[max(-20, -durations_t.size(dim=0)):]
+    plt.plot(recent_durations_t.mean())
 
     if show_result:
         plt.show()

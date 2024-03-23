@@ -30,7 +30,7 @@ def train(will_load_agent: bool):
         print("Saved Agent Loaded.\n")
     else:
         print("Initiating New Agent.", end=' ')
-        agent = Agent(env, ReplayMemory(100000), device)
+        agent = Agent(env, ReplayMemory(10000), device)
         print("New Agent Initiated.\n")
 
     episode_durations = []
@@ -46,7 +46,7 @@ def train(will_load_agent: bool):
 
             if terminated:
                 next_observation = None
-                reward = torch.tensor([100], device=device)
+                # reward = torch.tensor([100], device=device)
             else:
                 next_observation = torch.tensor(next_observation, dtype=torch.float32, device=device).unsqueeze(0)
 
